@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IP Subnet Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+      <div class="container d-flex justify-content-center">
+        <span id="title" class="text-light fs-5">IP Address Calculator</span>
+      </div>
+    </nav>
+
+    <div class="container mt-5 pb-3">
+      <h1 id="title" class="fs-2 text-center pb-2">IPv4 Subnet Calculator</h1>
+      <p class="text-center">
+        This IP Subnet Calculator takes an IP address and netmask and calculates
+        the resulting broadcast and network addresses, <br />
+        usable hosts, subnet mask, and IP class, and others.
+      </p>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+      <div class="row">
+        <div class="col-md-6 col-12 my-2">
+          <div class="input-group">
+            <span for="ip-address" class="input-group-text" id="basic-addon1"
+              >IP Address</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="ip-address"
+              aria-describedby="basic-addon1"
+              value="192.168.0.1"
+              required />
+            <div id="ip-feedback" class="invalid-feedback">
+              Please enter a valid IP address.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 my-2">
+          <div class="input-group">
+            <span for="prefix" class="input-group-text" id="basic-addon2"
+              >/</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="subnet-mask"
+              aria-describedby="basic-addon2"
+              value="24"
+              required />
+            <div id="prefix-feedback" class="invalid-feedback">
+              Please enter a valid prefix.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center pb-2">
+          <div class="d-flex pt-2 text-center text-sm-start">
+            <button
+              id="calculate-btn"
+              type="button"
+              class="btn btn-sm btn-primary"
+              onclick="calculate()">
+              Calculate
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container table-responsive">
+      <table class="table table-hover mt-3 text-center">
+        <thead>
+          <tr class="text-primary">
+            <th scope="col">Network Address</th>
+            <th scope="col">First Usable Address</th>
+            <th scope="col">Last Usable Address</th>
+            <th scope="col">Broadcast Address</th>
+            <th scope="col">Next Network Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="network-address"></td>
+            <td id="lowest-usable"></td>
+            <td id="highest-usable"></td>
+            <td id="broadcast-address"></td>
+            <td id="next-network-address"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <div class="d-flex justify-content-center my-4">
+        <table class="table table-striped-columns" id="table2">
+          <tbody>
+            <tr>
+              <td class="col-5">Subnet Mask:</td>
+              <td id="subnetMask"></td>
+            </tr>
+            <tr>
+              <td class="col-5">Binary Subnet Mask:</td>
+              <td id="subnetMaskBinary"></td>
+            </tr>
+            <tr>
+              <td>IP Class:</td>
+              <td id="ipClass"></td>
+            </tr>
+            <tr>
+              <td>Total Number of Hosts:</td>
+              <td id="totalHost"></td>
+            </tr>
+            <tr>
+              <td>Usable Hosts:</td>
+              <td id="usableHost"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="footer-bs border-top py-2">
+      <div id="footer" class="d-flex flex-wrap justify-content-around">
+        <div
+          class="fs-6 text-secondary text-muted"
+          style="--bs-text-opacity: 0.5">
+          © 2023 IP Subnet Calculator
+        </div>
+
+        <div>
+          <ul class="text-dark-emphasis nav justify-content-center">
+            <li class="nav-item mx-3">Benedict Gonzales</li>
+            <li class="nav-item mx-3">Alexander Oxales</li>
+            <li class="nav-item mx-3">Karl Portollano</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
